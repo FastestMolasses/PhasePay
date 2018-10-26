@@ -1,0 +1,3 @@
+rootProject.name = 'PhasePay'
+
+include ':app'
