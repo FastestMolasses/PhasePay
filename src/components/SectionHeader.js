@@ -22,9 +22,8 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     line: {
-        borderBottomColor: AppStyle.darkGrey,
-        borderBottomWidth: 1,
+        borderBottomColor: AppStyle.lightGrey,
+        borderBottomWidth: 2,
         marginTop: 5,
     }
 });
-

@@ -7,5 +7,4 @@ module.exports = {
     titleFontSize: 42,
     subTitleFontSize: 30,
     borderRadius: 12,
-    primaryAlpha: 'rgba(240,117,102, 0.4)',
 }

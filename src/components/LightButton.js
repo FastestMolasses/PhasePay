@@ -18,12 +18,15 @@ export default class LightButton extends React.PureComponent {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-        backgroundColor: AppStyle.white,
-        marginVertical: 5,
         padding: 10,
+        marginVertical: 5,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        backgroundColor: AppStyle.white,
         borderRadius: AppStyle.borderRadius,
+        shadowOffset: { width: 0, height: 1 },
+        shadowColor: 'black',
+        shadowOpacity: 0.1,
     },
     text: {
         fontSize: 22,

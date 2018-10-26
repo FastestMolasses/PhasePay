@@ -5,18 +5,20 @@ import AppStyle from '../../AppStyle';
 import LightButton from './LightButton';
 import SectionHeader from './SectionHeader';
 
-export default class HomeCard extends React.Component
-{
-    render()
-    {
+export default class HomeCard extends React.Component {
+    render() {
         return (
             <View style={styles.container}>
                 <SectionHeader text={this.props.sectionText} />
-                {
-                    this.props.buttonText ?
-                        <LightButton text={this.props.buttonText} /> :
-                        null
-                }
+
+                <View style={{ marginVertical: 8 }}>{this.props.content}</View>
+
+                {this.props.buttonText && this.props.onPress ? (
+                    <LightButton
+                        text={this.props.buttonText}
+                        onPress={this.props.onPress}
+                    />
+                ) : null}
             </View>
         );
     }

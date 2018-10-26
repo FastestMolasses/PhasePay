@@ -53,7 +53,7 @@ export const MainTabNav = TabNavigator(
         tabBarOptions: {
             activeTintColor: AppStyle.primaryColor,
             inactiveTintColor: AppStyle.lightGrey,
-            showLabel: false,
+            showLabel: true,
             showIcon: true,
             style: {
                 backgroundColor: AppStyle.white,
