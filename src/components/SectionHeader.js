@@ -9,7 +9,7 @@ export default class SectionHeader extends React.PureComponent
     {
         return (
             <View>
-                <Text style={styles.subText}>{this.props.text}</Text>
+                <Text style={styles.title}>{this.props.text}</Text>
                 <View style={styles.line}/>
             </View>
         );
@@ -17,7 +17,7 @@ export default class SectionHeader extends React.PureComponent
 }
 
 const styles = StyleSheet.create({
-    subText: {
+    title: {
         fontSize: 24,
         fontWeight: '600',
     },

@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import AppStyle from '../../AppStyle';
-import LightButton from './LightButton';
-import SectionHeader from './SectionHeader';
+import AppStyle from '../../../AppStyle';
+import LightButton from '../LightButton';
+import SectionHeader from '../SectionHeader';
 
-export default class HomeCard extends React.Component {
+export default class HomeItem extends React.Component {
     render() {
         return (
             <View style={styles.container}>

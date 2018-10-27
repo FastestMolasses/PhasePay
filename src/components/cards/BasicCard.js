@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import AppStyle from '../../AppStyle';
+import AppStyle from '../../../AppStyle';
 
 export default class BasicCard extends React.Component {
     render() {
@@ -16,7 +16,6 @@ export default class BasicCard extends React.Component {
     }
 }
 
-// TODO: CUSTOM HEIGHT AND WIDTH
 const styles = StyleSheet.create({
     container: {
         backgroundColor: AppStyle.white,

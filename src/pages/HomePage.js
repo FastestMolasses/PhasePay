@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, View, Text, FlatList } from 'react-native';
 
 import AppStyle from '../../AppStyle';
-import HomeCard from '../components/HomeCard';
-import RecentPurchaseCard from '../components/RecentPurchaseCard';
+import HomeItem from '../components/cards/HomeItem';
+import PlacesNearbyCard from '../components/cards/PlacesNearbyCard';
+import RecentPurchaseCard from '../components/cards/RecentPurchaseCard';
 
 export default class Home extends React.Component {
     constructor() {
@@ -25,21 +26,54 @@ export default class Home extends React.Component {
     render() {
         recentPurchasesFake = [
             {
-                store: 'Jack in the Box',
+                storeName: 'Jack in the Box',
                 spent: '$12.46',
             },
             {
-                store: 'Jack in the Box',
-                spent: '$12.46',
+                storeName: 'McDonald\'s',
+                spent: '$5.24',
             },
         ];
         recentPurchasesContent = (
             <FlatList
-                style={{ alignSelf: 'stretch', overflow: 'visible' }}
+                style={{ overflow: 'visible' }}
                 data={recentPurchasesFake}
                 horizontal={true}
                 renderItem={i => {
-                    return <RecentPurchaseCard {...i} />;
+                    return <RecentPurchaseCard {...i.item} />;
+                }}
+                keyExtractor={(item, index) => index.toString()}
+                showsHorizontalScrollIndicator={false}
+            />
+        );
+
+        placesNearbyFake = [
+            {
+                storeName: 'McDonalds',
+                address: '2290 N Bellflower Blvd',
+                priceScale: '$',
+                type: 'Fast Food',
+            },
+            {
+                storeName: 'AMC Theaters',
+                address: '6346 E Pacific Coast Hwy',
+                priceScale: '$$',
+                type: 'Movie',
+            },
+            {
+                storeName: 'Vons',
+                address: '1820 Ximeno Ave',
+                priceScale: '$$',
+                type: 'Grocery Store',
+            },
+        ];
+        placesNearbyContent = (
+            <FlatList
+                style={{ overflow: 'visible' }}
+                data={placesNearbyFake}
+                horizontal={true}
+                renderItem={i => {
+                    return <PlacesNearbyCard {...i.item} />;
                 }}
                 keyExtractor={(item, index) => index.toString()}
                 showsHorizontalScrollIndicator={false}
@@ -57,15 +91,18 @@ export default class Home extends React.Component {
                     <Text style={styles.dateText}>{this.curDate}</Text>
                 </View>
                 {recentPurchasesFake.length > 0 ? (
-                    <HomeCard
-                        sectionText="Recent Purchases"
-                        buttonText="View All"
+                    <HomeItem
+                        sectionText='Recent Purchases'
+                        buttonText='View All'
                         onPress={() => {}}
                         content={recentPurchasesContent}
                     />
                 ) : null}
-                <HomeCard sectionText="Places Nearby" />
-                <HomeCard sectionText="Coupons" />
+                <HomeItem
+                    sectionText='Places Nearby'
+                    content={placesNearbyContent}
+                />
+                <HomeItem sectionText='Coupons' />
             </SafeAreaView>
         );
     }
