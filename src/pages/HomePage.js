@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, View, Text, FlatList } from 'react-native';
+import {
+    StyleSheet,
+    SafeAreaView,
+    View,
+    Text,
+    FlatList,
+    ScrollView,
+} from 'react-native';
 
 import AppStyle from '../../AppStyle';
 import HomeItem from '../components/cards/HomeItem';
@@ -30,7 +37,7 @@ export default class Home extends React.Component {
                 spent: '$12.46',
             },
             {
-                storeName: 'McDonald\'s',
+                storeName: "McDonald's",
                 spent: '$5.24',
             },
         ];
@@ -53,18 +60,21 @@ export default class Home extends React.Component {
                 address: '2290 N Bellflower Blvd',
                 priceScale: '$',
                 type: 'Fast Food',
+                storeSource: require('../imgs/Fake/McDonalds.jpg'),
             },
             {
                 storeName: 'AMC Theaters',
                 address: '6346 E Pacific Coast Hwy',
                 priceScale: '$$',
                 type: 'Movie',
+                storeSource: require('../imgs/Fake/AMCTheater.jpg'),
             },
             {
                 storeName: 'Vons',
                 address: '1820 Ximeno Ave',
                 priceScale: '$$',
                 type: 'Grocery Store',
+                storeSource: require('../imgs/Fake/VonsStore.jpg'),
             },
         ];
         placesNearbyContent = (
@@ -82,27 +92,32 @@ export default class Home extends React.Component {
 
         return (
             <SafeAreaView style={styles.container}>
-                <View
-                    style={{
-                        borderColor: AppStyle.primaryColor,
-                        borderBottomWidth: 3,
-                    }}
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    style={{ overflow: 'visible' }}
                 >
-                    <Text style={styles.dateText}>{this.curDate}</Text>
-                </View>
-                {recentPurchasesFake.length > 0 ? (
+                    <View
+                        style={{
+                            borderColor: AppStyle.primaryColor,
+                            borderBottomWidth: 3,
+                        }}
+                    >
+                        <Text style={styles.dateText}>{this.curDate}</Text>
+                    </View>
+                    {recentPurchasesFake.length > 0 ? (
+                        <HomeItem
+                            sectionText="Recent Purchases"
+                            buttonText="View All"
+                            onPress={() => {}}
+                            content={recentPurchasesContent}
+                        />
+                    ) : null}
                     <HomeItem
-                        sectionText='Recent Purchases'
-                        buttonText='View All'
-                        onPress={() => {}}
-                        content={recentPurchasesContent}
+                        sectionText="Places Nearby"
+                        content={placesNearbyContent}
                     />
-                ) : null}
-                <HomeItem
-                    sectionText='Places Nearby'
-                    content={placesNearbyContent}
-                />
-                <HomeItem sectionText='Coupons' />
+                    <HomeItem sectionText="Coupons" />
+                </ScrollView>
             </SafeAreaView>
         );
     }

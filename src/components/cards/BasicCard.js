@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOpacity: 0.15,
         justifyContent: 'center',
+        alignItems: 'flex-start',
     },
 });
