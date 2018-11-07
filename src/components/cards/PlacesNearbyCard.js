@@ -37,7 +37,7 @@ export default class RecentPurchaseCard extends React.Component {
                 <View style={styles.container}>
                     <Image
                         style={styles.image}
-                        source={require('../../imgs/Notification_icon.png')}
+                        source={this.props.storeLogo}
                     />
                     <View style={styles.subContainer}>
                         <Text style={styles.storeNameText}>
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         width: 30,
         height: 30,
+        borderRadius: 15,
     },
     addressText: {
         fontSize: 16,

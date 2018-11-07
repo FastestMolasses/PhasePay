@@ -35,10 +35,12 @@ export default class Home extends React.Component {
             {
                 storeName: 'Jack in the Box',
                 spent: '$12.46',
+                source: require('../imgs/Fake/JackLogo.jpg'),
             },
             {
                 storeName: "McDonald's",
                 spent: '$5.24',
+                source: require('../imgs/Fake/McDonaldsLogo.png'),
             },
         ];
         recentPurchasesContent = (
@@ -61,6 +63,7 @@ export default class Home extends React.Component {
                 priceScale: '$',
                 type: 'Fast Food',
                 storeSource: require('../imgs/Fake/McDonalds.jpg'),
+                storeLogo: require('../imgs/Fake/McDonaldsLogo.png'),
             },
             {
                 storeName: 'AMC Theaters',
@@ -68,6 +71,7 @@ export default class Home extends React.Component {
                 priceScale: '$$',
                 type: 'Movie',
                 storeSource: require('../imgs/Fake/AMCTheater.jpg'),
+                storeLogo: require('../imgs/Fake/AMCLogo.jpg'),
             },
             {
                 storeName: 'Vons',
@@ -75,6 +79,7 @@ export default class Home extends React.Component {
                 priceScale: '$$',
                 type: 'Grocery Store',
                 storeSource: require('../imgs/Fake/VonsStore.jpg'),
+                storeLogo: require('../imgs/Fake/VonsLogo.jpg'),
             },
         ];
         placesNearbyContent = (
