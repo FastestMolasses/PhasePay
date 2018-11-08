@@ -27,7 +27,7 @@ export default class RecentPurchaseCard extends React.Component {
     render() {
         return (
             <BasicCard onPress={() => this.setModalVisible(true)}>
-                <Modal
+                {/* <Modal
                 transparent={true}
                     isVisible={this.state.modalVisible}
                     swipeDirection='right'
@@ -39,7 +39,7 @@ export default class RecentPurchaseCard extends React.Component {
                             <Text>Hello world</Text>
                         </View>
                     </View>
-                </Modal>
+                </Modal> */}
 
                 <View style={styles.headerContainer}>
                     <Image
