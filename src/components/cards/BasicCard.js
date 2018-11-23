@@ -9,6 +9,7 @@ export default class BasicCard extends React.Component {
             <TouchableOpacity
                 style={[styles.container, this.props.style]}
                 onPress={this.props.onPress}
+                activeOpacity={(this.props.noOpacity ? 1 : 0.2)}
             >
                 {this.props.children}
             </TouchableOpacity>

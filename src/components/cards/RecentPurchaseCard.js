@@ -12,35 +12,9 @@ import AppStyle from '../../../AppStyle';
 import BasicCard from '../cards/BasicCard';
 
 export default class RecentPurchaseCard extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            modalVisible: false,
-        };
-    }
-
-    setModalVisible = visible => {
-        this.setState({ modalVisible: visible });
-    };
-
     render() {
         return (
-            <BasicCard onPress={() => this.setModalVisible(true)}>
-                {/* <Modal
-                transparent={true}
-                    isVisible={this.state.modalVisible}
-                    swipeDirection='right'
-                    onSwipeThreshold={200}
-                    onSwipe={() => this.setState({ modalVisible: false })}
-                >
-                    <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                        <View style={styles.modal}>
-                            <Text>Hello world</Text>
-                        </View>
-                    </View>
-                </Modal> */}
-
+            <BasicCard>
                 <View style={styles.headerContainer}>
                     <Image
                         source={this.props.source}

@@ -8,7 +8,7 @@ import SectionHeader from '../SectionHeader';
 export default class HomeItem extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View style={[styles.container, this.props.style]}>
                 <SectionHeader text={this.props.sectionText} />
 
                 <View style={{ marginVertical: 8 }}>{this.props.content}</View>

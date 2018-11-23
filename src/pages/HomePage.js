@@ -9,9 +9,11 @@ import {
 } from 'react-native';
 
 import AppStyle from '../../AppStyle';
+import Swiper from 'react-native-deck-swiper';
 import HomeItem from '../components/cards/HomeItem';
 import PlacesNearbyCard from '../components/cards/PlacesNearbyCard';
 import RecentPurchaseCard from '../components/cards/RecentPurchaseCard';
+import BasicCard from '../components/cards/BasicCard';
 
 export default class Home extends React.Component {
     constructor() {
@@ -95,11 +97,70 @@ export default class Home extends React.Component {
             />
         );
 
+        couponsFake = [
+            '30% Any Fast Food Purchase',
+            '$3 Off Your Movie Tickets Purchase',
+            '$10 Off Any Order Over $100 At Vons',
+            '10% Extra Rewards Points',
+        ];
+        couponsContent = (
+            <Swiper
+                cardVerticalMargin={0}
+                cardHorizontalMargin={0}
+                cards={couponsFake}
+                renderCard={card => {
+                    return (
+                        <BasicCard
+                            style={{
+                                height: 100,
+                                // alignItems: 'center',
+                                width: '88%',
+                            }}
+                            noOpacity={true}
+                        >
+                            <Text
+                                style={{
+                                    fontSize: 16,
+                                    color: 'black',
+                                    fontWeight: '500',
+                                }}
+                            >
+                                {card}
+                            </Text>
+                            <Text>
+                                Expires Tomorrow
+                            </Text>
+                            <Text
+                                style={{
+                                    fontSize: 17,
+                                    color: AppStyle.primaryColor,
+                                    fontWeight: 'bold',
+                                    marginTop: 10,
+                                    alignSelf: 'flex-end',
+                                }}
+                            >
+                                Redeem
+                            </Text>
+                        </BasicCard>
+                    );
+                }}
+                backgroundColor={'transparent'}
+                containerStyle={{ height: 200 }}
+                disableBottomSwipe={true}
+                disableTopSwipe={true}
+                verticalSwipe={false}
+                infinite={true}
+                stackSize={2}
+                outputRotationRange={['-3deg', '0deg', '3deg']}
+                stackSeparation={0}
+            />
+        );
+
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView
                     showsVerticalScrollIndicator={false}
-                    style={{ overflow: 'visible' }}
+                    style={{ overflow: 'visible', flex: 1 }}
                 >
                     <View
                         style={{
@@ -109,19 +170,26 @@ export default class Home extends React.Component {
                     >
                         <Text style={styles.dateText}>{this.curDate}</Text>
                     </View>
+                    {/* Hard coded values are temporary to fix issue with scroll */}
                     {recentPurchasesFake.length > 0 ? (
                         <HomeItem
                             sectionText="Recent Purchases"
                             buttonText="View All"
                             onPress={() => {}}
                             content={recentPurchasesContent}
+                            style={{ height: 170 }}
                         />
                     ) : null}
                     <HomeItem
                         sectionText="Places Nearby"
                         content={placesNearbyContent}
+                        style={{ height: 220 }}
                     />
-                    <HomeItem sectionText="Coupons" />
+                    <HomeItem
+                        sectionText="Coupons"
+                        content={couponsContent}
+                        style={{ height: 180 }}
+                    />
                 </ScrollView>
             </SafeAreaView>
         );
