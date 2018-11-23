@@ -14,7 +14,7 @@ import BasicCard from '../cards/BasicCard';
 export default class RecentPurchaseCard extends React.Component {
     render() {
         return (
-            <BasicCard>
+            <BasicCard style={[{marginRight: 10,}, this.props.style]}>
                 <View style={styles.headerContainer}>
                     <Image
                         source={this.props.source}

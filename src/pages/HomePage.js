@@ -50,8 +50,8 @@ export default class Home extends React.Component {
                 style={{ overflow: 'visible' }}
                 data={recentPurchasesFake}
                 horizontal={true}
-                renderItem={i => {
-                    return <RecentPurchaseCard {...i.item} />;
+                renderItem={({ item }) => {
+                    return <RecentPurchaseCard {...item} />;
                 }}
                 keyExtractor={(item, index) => index.toString()}
                 showsHorizontalScrollIndicator={false}
@@ -127,9 +127,7 @@ export default class Home extends React.Component {
                             >
                                 {card}
                             </Text>
-                            <Text>
-                                Expires Tomorrow
-                            </Text>
+                            <Text>Expires Tomorrow</Text>
                             <Text
                                 style={{
                                     fontSize: 17,
@@ -175,7 +173,9 @@ export default class Home extends React.Component {
                         <HomeItem
                             sectionText="Recent Purchases"
                             buttonText="View All"
-                            onPress={() => {}}
+                            onPress={() => {
+                                this.props.navigation.navigate('ReceiptPage');
+                            }}
                             content={recentPurchasesContent}
                             style={{ height: 170 }}
                         />

@@ -47,6 +47,7 @@ export const MainTabNav = TabNavigator(
         },
     },
     {
+        initialRouteName: 'HomePage',
         tabBarPosition: 'bottom',
         animationEnabled: false,
         swipeEnabled: false,
@@ -63,10 +64,15 @@ export const MainTabNav = TabNavigator(
             labelStyle: { fontSize: 12 },
             indicatorStyle: { backgroundColor: 'transparent' },
         },
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: 'white',
+            },
+        },
     },
 );
 
-const imgSize = 26;
+const imgSize = 22;
 const styles = StyleSheet.create({
     icon: {
         width: imgSize,

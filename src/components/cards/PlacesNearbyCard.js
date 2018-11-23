@@ -12,7 +12,7 @@ export default class RecentPurchaseCard extends React.Component {
         return (
             <BasicCard
                 onPress={this.props.onPress}
-                style={{ height: imageHeight + contentHeight, flex: 1 }}
+                style={[{ height: imageHeight + contentHeight, flex: 1, marginRight: 10, }]}
             >
                 <View
                     style={{
