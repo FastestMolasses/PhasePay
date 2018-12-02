@@ -10,6 +10,7 @@ import {
 
 import AppStyle from '../../../AppStyle';
 import BasicCard from '../cards/BasicCard';
+import RecentPurchaseModal from '../RecentPurchaseModal';
 
 export default class RecentPurchaseCard extends React.Component {
     render() {

@@ -7,9 +7,23 @@ import {
     View,
 } from 'react-native';
 
+import AppStyle from '../../AppStyle';
 import RecentPurchaseCard from '../components/cards/RecentPurchaseCard';
 
 export default class Receipts extends React.Component {
+    constructor()
+    {
+        super();
+
+        this.state = {
+            curReceiptData: {},
+        }
+    }
+
+    // TODO: ADD MODAL HERE
+    // TODO: COMBINE MODAL SCRIPT WITH RECEIPTS PAGE
+    // NOTE: CALL TOGGLE FUNCTION AND UPDATE STATE W/ RECEIPT INFO
+
     render() {
         fakeReceiptData = [
             {
@@ -36,7 +50,7 @@ export default class Receipts extends React.Component {
                         source: require('../imgs/Fake/GapLogo.png'),
                     },
                     {
-                        storeName: "Apple",
+                        storeName: 'Apple',
                         spent: '$510.80',
                         source: require('../imgs/Fake/AppleLogo.jpg'),
                     },
@@ -56,22 +70,22 @@ export default class Receipts extends React.Component {
                         source: require('../imgs/Fake/RayBanLogo.jpg'),
                     },
                     {
-                        storeName: "SubWay",
+                        storeName: 'SubWay',
                         spent: '$9.31',
                         source: require('../imgs/Fake/SubwayLogo.jpg'),
                     },
                     {
-                        storeName: "WalMart",
+                        storeName: 'WalMart',
                         spent: '$23.24',
                         source: require('../imgs/Fake/WalmartLogo.jpg'),
                     },
                     {
-                        storeName: "Target",
+                        storeName: 'Target',
                         spent: '$17.24',
                         source: require('../imgs/Fake/TargetLogo.png'),
                     },
                     {
-                        storeName: "Jack in the Box",
+                        storeName: 'Jack in the Box',
                         spent: '$7.31',
                         source: require('../imgs/Fake/JackLogo.jpg'),
                     },
@@ -81,7 +95,7 @@ export default class Receipts extends React.Component {
                         source: require('../imgs/Fake/McDonaldsLogo.png'),
                     },
                     {
-                        storeName: "Target",
+                        storeName: 'Target',
                         spent: '$14.24',
                         source: require('../imgs/Fake/TargetLogo.png'),
                     },
@@ -101,7 +115,7 @@ export default class Receipts extends React.Component {
                         source: require('../imgs/Fake/JackLogo.jpg'),
                     },
                     {
-                        storeName: "Apple",
+                        storeName: 'Apple',
                         spent: '$510.80',
                         source: require('../imgs/Fake/AppleLogo.jpg'),
                     },
@@ -111,7 +125,7 @@ export default class Receipts extends React.Component {
                         source: require('../imgs/Fake/McDonaldsLogo.png'),
                     },
                     {
-                        storeName: "SubWay",
+                        storeName: 'SubWay',
                         spent: '$9.31',
                         source: require('../imgs/Fake/SubwayLogo.jpg'),
                     },
@@ -123,6 +137,21 @@ export default class Receipts extends React.Component {
             <SafeAreaView style={styles.container}>
                 <SectionList
                     sections={fakeReceiptData}
+                    ListHeaderComponent={() => {
+                        return (
+                            <View
+                                style={{
+                                    borderColor: AppStyle.primaryColor,
+                                    borderBottomWidth: 3,
+                                    marginHorizontal: 22,
+                                }}
+                            >
+                                <Text style={styles.titleText}>
+                                    Receipts
+                                </Text>
+                            </View>
+                        );
+                    }}
                     renderItem={({ item }) => {
                         return (
                             <RecentPurchaseCard
@@ -150,6 +179,11 @@ export default class Receipts extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    titleText: {
+        fontSize: 32,
+        fontWeight: '800',
+        marginVertical: 10,
     },
     sectionText: {
         fontSize: 32,

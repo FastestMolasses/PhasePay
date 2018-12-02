@@ -11,9 +11,9 @@ import {
 import AppStyle from '../../AppStyle';
 import Swiper from 'react-native-deck-swiper';
 import HomeItem from '../components/cards/HomeItem';
+import BasicCard from '../components/cards/BasicCard';
 import PlacesNearbyCard from '../components/cards/PlacesNearbyCard';
 import RecentPurchaseCard from '../components/cards/RecentPurchaseCard';
-import BasicCard from '../components/cards/BasicCard';
 
 export default class Home extends React.Component {
     constructor() {
