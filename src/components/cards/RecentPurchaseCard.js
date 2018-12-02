@@ -27,19 +27,7 @@ export default class RecentPurchaseCard extends React.Component {
     render() {
         return (
             <BasicCard onPress={() => this.setModalVisible(true)}>
-                <Modal
-                transparent={true}
-                    isVisible={this.state.modalVisible}
-                    swipeDirection='right'
-                    onSwipeThreshold={200}
-                    onSwipe={() => this.setState({ modalVisible: false })}
-                >
-                    <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                        <View style={styles.modal}>
-                            <Text>Hello world</Text>
-                        </View>
-                    </View>
-                </Modal>
+
 
                 <View style={styles.headerContainer}>
                     <Image

@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 
 import AppStyle from './AppStyle';
 import Home from './src/pages/HomePage';
 import Receipt from './src/pages/ReceiptsPage';
 import Settings from './src/pages/SettingsPage';
+import Registration from './src/pages/RegistrationPage';
 
-export const MainTabNav = TabNavigator(
+export const MainTabNav = createBottomTabNavigator(
     {
         HomePage: {
             screen: Home,
