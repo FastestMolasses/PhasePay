@@ -18,7 +18,7 @@ export class Profile extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={{}}>Now, we'll need a photo of yourself</Text>
+                    <Text style={styles.plain}>Now, we'll need a photo of yourself</Text>
                     <Button
                         title="Open Camera"
                         onPress={this.handleSubmit}
@@ -63,5 +63,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         alignSelf: 'center',
         margin: 20
+    },
+    plain: {
+        marginTop: 40,
+        marginBottom: 40
     }
 });

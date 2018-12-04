@@ -26,16 +26,17 @@ export class Username extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={{}}>Lastly, we need a username and a password</Text>
+                    <Text style={styles.plain}>Lastly, we need a username and a password</Text>
                     <TextInput
-                        style={{height: 40, padding: 10}}
+                        style={{height: 40, width: 284}}
                         placeholder="Username"
                         onChangeText={(username) => this.setState({username})}
                     />
                     <TextInput
-                        style={{height: 40, padding: 10}}
+                        style={{height: 40, width: 284}}
                         placeholder="Password"
                         onChangeText={(password) => this.setState({password})}
+                        secureTextEntry={true}
                     />
                     <Button
                         title="Submit"
@@ -81,5 +82,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         alignSelf: 'center',
         margin: 20
+    },
+    plain: {
+        marginTop: 10,
+        marginBottom: 10
     }
 });

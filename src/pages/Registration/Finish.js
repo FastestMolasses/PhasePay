@@ -29,13 +29,40 @@ export class Finish extends React.Component {
         console.log("Password:  ", password);
         await AsyncStorage.setItem('userToken', "hi");
         this.props.navigation.navigate('Loading');
+
+
+        let data = {
+            "username": username,
+                "password": password,
+                "license": license,
+                "profile": profile,
+                "cardNumber": cardNumber,
+                "exp": exp,
+                "cvc": cvc
+        };
+
+        fetch("/register", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body:  JSON.stringify(data)
+        })
+            .then(function(response){
+                return response.json();
+            })
+            .catch(function(error) {
+                console.log('There has been a problem with your fetch operation: ', error.message);
+            })
+            .then(function(data){
+                console.log(data)
+            });
+
     }
 
     render() {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={{}}>Congratulations! Now you can use PayPhase</Text>
+                    <Text style={styles.plain}>Congratulations! Now you can use PayPhase</Text>
                     <Button
                         title="Start"
                         onPress={this.getSubmits}
@@ -80,5 +107,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         alignSelf: 'center',
         margin: 20
+    },
+    plain: {
+        marginTop: 50,
+        marginBottom: 50
     }
 });

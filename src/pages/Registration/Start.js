@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import {Button, SafeAreaView, StyleSheet, Text, View, Image} from "react-native";
 
 export class Start extends React.Component {
     constructor() {
@@ -22,7 +22,9 @@ export class Start extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={{}}>Welcome to PhasePay</Text>
+                    <Image
+                        source={require("../../imgs/Phasepay_icon.jpg")}
+                    />
                     <Button
                         title="Get Started"
                         onPress={this.handleSubmit}

@@ -31,17 +31,17 @@ export class Card extends React.Component {
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
                     <TextInput
-                        style={{height: 40, padding: 10}}
+                        style={{height: 40, width: 200}}
                         placeholder="Card Number"
                         onChangeText={(number) => this.setState({number})}
                     />
                     <TextInput
-                        style={{height: 40, padding: 10}}
+                        style={{height: 40, width: 200}}
                         placeholder="Expiration Date"
                         onChangeText={(exp) => this.setState({exp})}
                     />
                     <TextInput
-                        style={{height: 40, padding: 10}}
+                        style={{height: 40, width: 200}}
                         placeholder="CVC"
                         onChangeText={(cvc) => this.setState({cvc})}
                     />
@@ -66,6 +66,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    input: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        height: 40
     },
     preview: {
         flex: 1,

@@ -45,7 +45,7 @@ export class Camera2 extends React.Component {
             const options = { quality: 0.5, base64: true };
             const data = await this.camera.takePictureAsync(options);
             console.log(data.uri);
-            await AsyncStorage.setItem('pic2', data.uri);
+            await AsyncStorage.setItem('pic2', data.base64);
             this.props.navigation.navigate('Payment');
         }
     };

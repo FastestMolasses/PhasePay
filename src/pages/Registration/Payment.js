@@ -22,7 +22,7 @@ export class Payment extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={{}}>Now, we'll need your preferred payment method.</Text>
+                    <Text style={styles.plain}>Now, we'll need your preferred payment method.</Text>
                     <Button
                         title="Link Credit/Debit Card"
                         onPress={this.handleCard}
@@ -71,5 +71,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         alignSelf: 'center',
         margin: 20
+    },
+    plain: {
+        marginTop: 40,
+        marginBottom: 40
     }
 });
