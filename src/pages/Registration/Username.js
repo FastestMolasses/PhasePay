@@ -1,16 +1,24 @@
 import React from "react";
-import {Button, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import {Button, SafeAreaView, StyleSheet, Text, View, TextInput, AsyncStorage} from "react-native";
 
 export class Username extends React.Component {
     constructor() {
         super();
+        this.state = {
+            username: '',
+            password: ''
+
+        };
     }
 
     componentWillMount() {
 
     }
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
+        // Send to database
+        await AsyncStorage.setItem('username', this.state.username);
+        await AsyncStorage.setItem('password', this.state.password);
         this.props.navigation.navigate('Finish');
     }
 
@@ -19,6 +27,16 @@ export class Username extends React.Component {
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
                     <Text style={{}}>Lastly, we need a username and a password</Text>
+                    <TextInput
+                        style={{height: 40, padding: 10}}
+                        placeholder="Username"
+                        onChangeText={(username) => this.setState({username})}
+                    />
+                    <TextInput
+                        style={{height: 40, padding: 10}}
+                        placeholder="Password"
+                        onChangeText={(password) => this.setState({password})}
+                    />
                     <Button
                         title="Submit"
                         onPress={this.handleSubmit}

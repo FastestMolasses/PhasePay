@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import {AsyncStorage, Button, SafeAreaView, StyleSheet, Text, View} from "react-native";
 
 export class Finish extends React.Component {
     constructor() {
@@ -10,8 +10,25 @@ export class Finish extends React.Component {
 
     }
 
-    handleSubmit = () => {
-        this.props.navigation.navigate('Finish');
+    //Store all into SQL database
+
+    getSubmits = async () => {
+        const license = await AsyncStorage.getItem('pic1');
+        console.log("license: ", license);
+        const profile = await AsyncStorage.getItem('pic2');
+        console.log("Profile: ", profile);
+        const cardNumber = await AsyncStorage.getItem('cardNumber');
+        console.log("Card Number: ", cardNumber);
+        const exp = await AsyncStorage.getItem('exp');
+        console.log("Expiration Date: ", exp);
+        const cvc = await AsyncStorage.getItem('cvc');
+        console.log("CVC:  ", cvc);
+        const username = await AsyncStorage.getItem('username');
+        console.log("Username:  ", username);
+        const password = await AsyncStorage.getItem('password');
+        console.log("Password:  ", password);
+        await AsyncStorage.setItem('userToken', "hi");
+        this.props.navigation.navigate('Loading');
     }
 
     render() {
@@ -21,7 +38,7 @@ export class Finish extends React.Component {
                     <Text style={{}}>Congratulations! Now you can use PayPhase</Text>
                     <Button
                         title="Start"
-                        onPress={this.handleSubmit}
+                        onPress={this.getSubmits}
                     />
                 </View>
             </SafeAreaView>

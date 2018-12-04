@@ -1,14 +1,15 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
-import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
+import {StyleSheet, Image, View, TouchableOpacity, Text} from 'react-native';
+import { createBottomTabNavigator, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import AppStyle from './AppStyle';
 import Home from './src/pages/HomePage';
 import Receipt from './src/pages/ReceiptsPage';
 import Settings from './src/pages/SettingsPage';
 import Registration from './src/pages/RegistrationPage';
+import AuthLoadingScreen from './src/pages/AuthLoading';
 
-export const MainTabNav = createBottomTabNavigator(
+const MainTabNav = createBottomTabNavigator(
     {
         HomePage: {
             screen: Home,
@@ -74,3 +75,14 @@ const styles = StyleSheet.create({
         height: imgSize,
     },
 });
+
+export default createSwitchNavigator(
+    {
+        AuthLoading: AuthLoadingScreen,
+        App: MainTabNav,
+        Auth: Registration
+    },
+    {
+        initialRouteName: 'AuthLoading',
+    }
+);

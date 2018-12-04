@@ -15,7 +15,7 @@ export class Start extends React.Component {
     }
 
     login = () => {
-        this.props.navigation.navigate('License');
+        this.props.navigation.navigate('Login');
     }
 
     render() {

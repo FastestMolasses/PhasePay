@@ -1,27 +1,50 @@
 import React from "react";
-import {Button, SafeAreaView, StyleSheet, View} from "react-native";
+import {AsyncStorage, Button, SafeAreaView, StyleSheet, TextInput, View} from "react-native";
 import {CreditCardInput} from "react-native-credit-card-input";
+import * as formData from "react-native-credit-card-input";
 
 export class Card extends React.Component {
-
-    _onChange = (formData) => console.log(JSON.stringify(formData, null, " "));
     constructor() {
         super();
+        this.state = {
+            number: '',
+            exp: '',
+            cvc: ''
+
+        };
     }
 
     componentWillMount() {
 
     }
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
+
         this.props.navigation.navigate('Username');
-    }
+        await AsyncStorage.setItem('cardNumber', this.state.number);
+        await AsyncStorage.setItem('exp', this.state.exp);
+        await AsyncStorage.setItem('cvc', this.state.cvc);
+    };
 
     render() {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <CreditCardInput onChange={this._onChange} />
+                    <TextInput
+                        style={{height: 40, padding: 10}}
+                        placeholder="Card Number"
+                        onChangeText={(number) => this.setState({number})}
+                    />
+                    <TextInput
+                        style={{height: 40, padding: 10}}
+                        placeholder="Expiration Date"
+                        onChangeText={(exp) => this.setState({exp})}
+                    />
+                    <TextInput
+                        style={{height: 40, padding: 10}}
+                        placeholder="CVC"
+                        onChangeText={(cvc) => this.setState({cvc})}
+                    />
                     <Button
                         title="Submit"
                         onPress={this.handleSubmit}

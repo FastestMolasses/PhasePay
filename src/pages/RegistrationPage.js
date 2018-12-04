@@ -15,6 +15,8 @@ import {Paypal}from './Registration/Paypal.js';
 import {Username}from './Registration/Username.js';
 import {Finish} from './Registration/Finish.js';
 import {Profile} from './Registration/Profile.js';
+import {Login} from './Registration/Login.js';
+import Loading from './AuthLoading.js';
 
 export default createStackNavigator({
     Start: {
@@ -43,9 +45,15 @@ export default createStackNavigator({
     },
     Username: {
         screen: Username
-    }
+    },
     Finish: {
         screen: Finish
+    },
+    Login: {
+        screen: Login
+    },
+    Loading: {
+        screen: Loading
     }
 },
     {

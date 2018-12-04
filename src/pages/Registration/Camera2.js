@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {AsyncStorage, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {RNCamera} from "react-native-camera";
 
 export class Camera2 extends React.Component {
@@ -45,6 +45,7 @@ export class Camera2 extends React.Component {
             const options = { quality: 0.5, base64: true };
             const data = await this.camera.takePictureAsync(options);
             console.log(data.uri);
+            await AsyncStorage.setItem('pic2', data.uri);
             this.props.navigation.navigate('Payment');
         }
     };

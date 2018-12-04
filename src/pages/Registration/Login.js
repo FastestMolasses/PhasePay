@@ -1,27 +1,42 @@
 import React from "react";
-import {Button, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import {Button, SafeAreaView, StyleSheet, Text, TextInput, View, AsyncStorage} from "react-native";
 
 export class Login extends React.Component {
     constructor() {
         super();
+        this.state = {
+            username: '',
+            password: ''
+
+        };
     }
 
     componentWillMount() {
 
     }
 
-    handleSubmit = () => {
-        this.props.navigation.navigate('Camera');
-    }
+    _signInAsync = async () => {
+        await AsyncStorage.setItem('userToken', this.state.username);
+        this.props.navigation.navigate('Loading');
+    };
 
     render() {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={{}}>First, we'll need a picture of your driver's license</Text>
+                    <TextInput
+                        style={{height: 40, padding: 10}}
+                        placeholder="Username"
+                        onChangeText={(username) => this.setState({username})}
+                    />
+                    <TextInput
+                        style={{height: 40, padding: 10}}
+                        placeholder="Password"
+                        onChangeText={(password) => this.setState({password})}
+                    />
                     <Button
-                        title="Sign In"
-                        onPress={this.handleSubmit}
+                        title="Login"
+                        onPress={this._signInAsync}
                     />
                 </View>
             </SafeAreaView>
