@@ -6,7 +6,8 @@ import {
     Text,
     Image,
     FlatList,
-    TouchableOpacity
+    TouchableOpacity,
+    AsyncStorage
 } from 'react-native';
 
 import AppStyle from '../../AppStyle';
@@ -42,6 +43,11 @@ export default class Settings extends React.Component {
             {
                 name: 'Sign Out',
                 icon: require('../imgs/Logout_icon.png'),
+                action: () =>
+                {
+                    AsyncStorage.clear();
+                    this.props.navigation.navigate('AuthLoading');
+                },
             },
         ];
     }
@@ -49,7 +55,7 @@ export default class Settings extends React.Component {
     renderSettingsItem = ({item}) =>
     {
         return (
-            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginVertical: 10,}} onPress={() => {}}>
+            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginVertical: 10,}} onPress={item.action}>
                 <Image
                     source={item.icon}
                     style={styles.icon}

@@ -11,16 +11,49 @@ import AppStyle from '../../AppStyle';
 import RecentPurchaseCard from '../components/cards/RecentPurchaseCard';
 
 export default class Receipts extends React.Component {
-    constructor()
-    {
+    constructor() {
         super();
 
         this.state = {
             curReceiptData: {},
-        }
+        };
     }
 
+    ask = (endpoint, cb) => {
+        const myRequest = new Request(endpoint, {
+            method: 'GET'
+        });
+
+        fetch(myRequest)
+            .then(function(response) {
+                return response.blob();
+            })
+            .then(function(err, response) {
+                cb(null, response);
+            })
+            .catch(function(err) {
+                cb(err);
+            });
+    };
+
     render() {
+        // onlineReceipts = this.ask('http://03aef214.ngrok.io/get_orders', function(
+        //     err,
+        //     result,
+        // ) {
+        //     console.log('Just asked');
+        //     if (err) return console.log(err);
+
+        //     console.log('Result of request is: ');
+        //     console.log(result);
+        // });
+        onlineReceipts = fetch('http://03aef214.ngrok.io/get_orders').then((response) =>
+        {
+            var res = response.json()
+            console.log(res);
+            this.setState({receipts: res})
+        });
+
         fakeReceiptData = [
             {
                 title: 'Today',
@@ -142,9 +175,7 @@ export default class Receipts extends React.Component {
                                     marginHorizontal: 22,
                                 }}
                             >
-                                <Text style={styles.titleText}>
-                                    Receipts
-                                </Text>
+                                <Text style={styles.titleText}>Receipts</Text>
                             </View>
                         );
                     }}

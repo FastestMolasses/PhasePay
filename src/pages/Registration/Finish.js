@@ -62,7 +62,7 @@ export class Finish extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={styles.plain}>Congratulations! Now you can use PayPhase</Text>
+                    <Text style={styles.plain}>Congratulations! Now you can use PhasePay</Text>
                     <Button
                         title="Start"
                         onPress={this.getSubmits}

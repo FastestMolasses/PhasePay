@@ -57,7 +57,8 @@ export default createStackNavigator({
     }
 },
     {
-        initialRouteName: 'Start'
+        initialRouteName: 'Start',
+        headerMode: 'none',
     });
 
 const styles = StyleSheet.create({
