@@ -8,6 +8,6 @@ import Registration from './src/pages/RegistrationPage.js';
 
 export default class App extends React.Component {
     render() {
-        return <Router/>
+        return <Router />;
     }
 }
