@@ -11,6 +11,8 @@
     "react-native": "0.57.4",
     "react-native-deck-swiper": "^1.5.25",
     "react-native-modalbox": "^1.6.0",
+    "react-native-camera": "^1.4.3",
+    "react-native-credit-card-input": "^0.4.1",
     "react-navigation": "^2.18.1"
   },
   "devDependencies": {

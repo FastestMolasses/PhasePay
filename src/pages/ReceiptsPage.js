@@ -20,10 +20,6 @@ export default class Receipts extends React.Component {
         }
     }
 
-    // TODO: ADD MODAL HERE
-    // TODO: COMBINE MODAL SCRIPT WITH RECEIPTS PAGE
-    // NOTE: CALL TOGGLE FUNCTION AND UPDATE STATE W/ RECEIPT INFO
-
     render() {
         fakeReceiptData = [
             {

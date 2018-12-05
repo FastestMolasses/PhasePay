@@ -1,5 +1,6 @@
 import React from 'react';
-import { MainTabNav } from './Router';
+import Router from './Router';
+import Registration from './src/pages/RegistrationPage.js';
 
 // Fixing RN debug env
 // react-native upgrade
@@ -7,6 +8,6 @@ import { MainTabNav } from './Router';
 
 export default class App extends React.Component {
     render() {
-        return <MainTabNav />;
+        return <Router/>
     }
 }

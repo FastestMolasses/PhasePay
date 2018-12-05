@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: AppStyle.white,
         borderRadius: AppStyle.borderRadius,
-        backgroundColor: AppStyle.white,
         padding: 20,
         width: 250,
         height: 75,
