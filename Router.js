@@ -1,6 +1,10 @@
 import React from 'react';
-import {StyleSheet, Image, View, TouchableOpacity, Text} from 'react-native';
-import { createBottomTabNavigator, createSwitchNavigator, createStackNavigator } from 'react-navigation';
+import { StyleSheet, Image, View, TouchableOpacity, Text } from 'react-native';
+import {
+    createBottomTabNavigator,
+    createSwitchNavigator,
+    createStackNavigator,
+} from 'react-navigation';
 
 import AppStyle from './AppStyle';
 import Home from './src/pages/HomePage';
@@ -86,9 +90,9 @@ export default createSwitchNavigator(
     {
         AuthLoading: AuthLoadingScreen,
         App: MainTabNav,
-        Auth: Registration
+        Auth: Registration,
     },
     {
         initialRouteName: 'AuthLoading',
-    }
+    },
 );

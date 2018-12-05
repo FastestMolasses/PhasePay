@@ -1,19 +1,21 @@
-import React from "react";
-import {AsyncStorage, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {RNCamera} from "react-native-camera";
+import React from 'react';
+import {
+    AsyncStorage,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+} from 'react-native';
+import { RNCamera } from 'react-native-camera';
 
 export class Camera extends React.Component {
     constructor() {
         super();
     }
 
-    componentWillMount() {
+    componentWillMount() {}
 
-    }
-
-    handleSubmit = () => {
-
-    };
+    handleSubmit = () => {};
 
     render() {
         return (
@@ -22,18 +24,26 @@ export class Camera extends React.Component {
                     ref={ref => {
                         this.camera = ref;
                     }}
-                    style = {styles.preview}
+                    style={styles.preview}
                     type={RNCamera.Constants.Type.back}
                     flashMode={RNCamera.Constants.FlashMode.on}
                     permissionDialogTitle={'Permission to use camera'}
-                    permissionDialogMessage={'We need your permission to use your camera phone'}
+                    permissionDialogMessage={
+                        'We need your permission to use your camera phone'
+                    }
                 />
-                <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center',}}>
+                <View
+                    style={{
+                        flex: 0,
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                    }}
+                >
                     <TouchableOpacity
                         onPress={this.takePicture.bind(this)}
-                        style = {styles.capture}
+                        style={styles.capture}
                     >
-                        <Text style={{fontSize: 14}}> SNAP </Text>
+                        <Text style={{ fontSize: 14 }}> SNAP </Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -61,12 +71,12 @@ const styles = StyleSheet.create({
     text: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     preview: {
         flex: 1,
         justifyContent: 'flex-end',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     dateText: {
         fontSize: 32,
@@ -84,6 +94,6 @@ const styles = StyleSheet.create({
         padding: 15,
         paddingHorizontal: 20,
         alignSelf: 'center',
-        margin: 20
-    }
+        margin: 20,
+    },
 });
