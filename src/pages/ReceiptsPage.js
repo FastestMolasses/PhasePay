@@ -37,22 +37,15 @@ export default class Receipts extends React.Component {
     };
 
     render() {
-        // onlineReceipts = this.ask('http://03aef214.ngrok.io/get_orders', function(
-        //     err,
-        //     result,
-        // ) {
-        //     console.log('Just asked');
-        //     if (err) return console.log(err);
-
-        //     console.log('Result of request is: ');
-        //     console.log(result);
-        // });
-        onlineReceipts = fetch('http://03aef214.ngrok.io/get_orders').then((response) =>
-        {
-            var res = response.json()
-            console.log(res);
-            this.setState({receipts: res})
-        });
+        fetch('http://127.0.0.1:5000/get_orders')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson);
+                this.setState({receipts: responseJson})
+            })
+            .catch((error) =>{
+                console.error(error);
+            });
 
         fakeReceiptData = [
             {
