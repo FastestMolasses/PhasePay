@@ -6,10 +6,6 @@ export class Start extends React.Component {
         super();
     }
 
-    componentWillMount() {
-
-    }
-
     handleSubmit = () => {
         this.props.navigation.navigate('License');
     }

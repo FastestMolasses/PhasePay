@@ -1,72 +1,74 @@
-import React from "react";
-import {AsyncStorage, Button, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import React from 'react';
+import {
+    AsyncStorage,
+    Button,
+    SafeAreaView,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
 
 export class Finish extends React.Component {
     constructor() {
         super();
     }
 
-    componentWillMount() {
-
-    }
-
     //Store all into SQL database
-
     getSubmits = async () => {
         const license = await AsyncStorage.getItem('pic1');
-        console.log("license: ", license);
+        console.log('license: ', license);
         const profile = await AsyncStorage.getItem('pic2');
-        console.log("Profile: ", profile);
+        console.log('Profile: ', profile);
         const cardNumber = await AsyncStorage.getItem('cardNumber');
-        console.log("Card Number: ", cardNumber);
+        console.log('Card Number: ', cardNumber);
         const exp = await AsyncStorage.getItem('exp');
-        console.log("Expiration Date: ", exp);
+        console.log('Expiration Date: ', exp);
         const cvc = await AsyncStorage.getItem('cvc');
-        console.log("CVC:  ", cvc);
+        console.log('CVC:  ', cvc);
         const username = await AsyncStorage.getItem('username');
-        console.log("Username:  ", username);
+        console.log('Username:  ', username);
         const password = await AsyncStorage.getItem('password');
-        console.log("Password:  ", password);
-        await AsyncStorage.setItem('userToken', "hi");
+        console.log('Password:  ', password);
+        await AsyncStorage.setItem('userToken', 'hi');
         this.props.navigation.navigate('Loading');
 
-
         let data = {
-            "username": username,
-                "password": password,
-                "license": license,
-                "profile": profile,
-                "cardNumber": cardNumber,
-                "exp": exp,
-                "cvc": cvc
+            username: username,
+            password: password,
+            license: license,
+            profile: profile,
+            cardNumber: cardNumber,
+            exp: exp,
+            cvc: cvc,
         };
 
-        fetch("/register", {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body:  JSON.stringify(data)
+        fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
         })
-            .then(function(response){
+            .then(function(response) {
                 return response.json();
             })
             .catch(function(error) {
-                console.log('There has been a problem with your fetch operation: ', error.message);
+                console.log(
+                    'There has been a problem with your fetch operation: ',
+                    error.message,
+                );
             })
-            .then(function(data){
-                console.log(data)
+            .then(function(data) {
+                console.log(data);
             });
-
-    }
+    };
 
     render() {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={styles.plain}>Congratulations! Now you can use PhasePay</Text>
-                    <Button
-                        title="Start"
-                        onPress={this.getSubmits}
-                    />
+                    <Text style={styles.plain}>
+                        Congratulations! Now you can use PhasePay
+                    </Text>
+                    <Button title="Start" onPress={this.getSubmits} />
                 </View>
             </SafeAreaView>
         );
@@ -83,12 +85,12 @@ const styles = StyleSheet.create({
     text: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     preview: {
         flex: 1,
         justifyContent: 'flex-end',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     dateText: {
         fontSize: 32,
@@ -106,10 +108,10 @@ const styles = StyleSheet.create({
         padding: 15,
         paddingHorizontal: 20,
         alignSelf: 'center',
-        margin: 20
+        margin: 20,
     },
     plain: {
         marginTop: 50,
-        marginBottom: 50
-    }
+        marginBottom: 50,
+    },
 });
